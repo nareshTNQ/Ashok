@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eo-gateway>
+   <interface-code>EVISE</interface-code>
+   <supplier-code/>
+   <quick-transmittal>true</quick-transmittal>
+   <authors>
+      <author type="first">
+         <forename>Muhammad</forename>
+         <surname>Younis</surname>
+         <author-title>Dr</author-title>
+         <affiliation>
+            <institute>University of the Punjab, Lahore Pakistan</institute>
+            <address>
+               <author-address>University of the Punjab, Lahore</author-address>
+               <author-address-contd/>
+               <zipcode>54590</zipcode>
+               <city>Lahore</city>
+               <state>Punjab</state>
+               <country cny-code="pk"/>
+               <email>
+                  <primary-email-id>younis.pu@gmail.com</primary-email-id>
+               </email>
+            </address>
+         </affiliation>
+         <author-id>younis.pu@gmail.com</author-id>
+      </author>
+      <author type="corresponding">
+         <forename>Muhammad</forename>
+         <surname>Younis</surname>
+         <author-title>Dr</author-title>
+         <affiliation>
+            <institute>University of the Punjab, Lahore Pakistan</institute>
+            <address>
+               <author-address>University of the Punjab, Lahore</author-address>
+               <author-address-contd/>
+               <zipcode>54590</zipcode>
+               <city>Lahore</city>
+               <state>Punjab</state>
+               <country cny-code="pk"/>
+               <email>
+                  <primary-email-id>younis.pu@gmail.com</primary-email-id>
+               </email>
+            </address>
+         </affiliation>
+         <author-id>younis.pu@gmail.com</author-id>
+         <accepts-marketing-mail marketing-mail="y"/>
+      </author>
+   </authors>
+   <details>
+      <journal-code>YSPMI</journal-code>
+      <title>Dynamics of Optical Solitons in Dual-Core Fibers via Two Integration Schemes</title>
+      <PII>S0749-6036(17)30591-8</PII>
+      <publication-item-type type="FLA"/>
+      <production-type type="FTP"/>
+      <no-pages>1</no-pages>
+      <e-components>
+         <e-component>
+            <e-component-nr>1</e-component-nr>
+            <file-name>highlights.docx</file-name>
+            <e-component-format type="APPLICATION"/>
+            <e-component-type>Highlights</e-component-type>
+            <remarks/>
+         </e-component>
+      </e-components>
+      <eo-receive-date>
+         <date>2017-03-08T17:49:30Z</date>
+      </eo-receive-date>
+      <eo-accept-date>
+         <date>2017-03-27T07:43:57Z</date>
+      </eo-accept-date>
+      <eo-item-nr>SM_2017_547</eo-item-nr>
+      <eo-submission-nr>SM_2017_547</eo-submission-nr>
+      <waiving-of-colour-costs waiving="n"/>
+      <oa-fee-waived waived="n"/>
+   </details>
+</eo-gateway>

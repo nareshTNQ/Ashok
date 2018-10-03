@@ -1,0 +1,663 @@
+\documentclass[review]{elsarticle}
+\usepackage[a4paper, total={6.27in, 9.7in}]{geometry}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+	\usetikzlibrary{matrix,shapes,arrows,positioning,chains,shapes.geometric,calc,patterns,decorations.pathmorphing,decorations.markings}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{natbib}
+
+\bibliographystyle{unsrt}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Coupled nonlinear instability of cable subjected to combined hydrodynamic and ice loads}
+\author[label1]{R. Ghoshal}
+\author[label1]{A. Yenduri}
+\author[label1]{A. Ahmed}
+\author[label2]{X. Qian}
+\author[label3]{R.K. Jaiman\corref{RJ}}
+\address[label1]{Keppel-NUS Corporate Laboratory, National University of Singapore, Singapore}
+\address[label2]{Department of Civil and Environmental Engineering, National University of Singapore, Singapore}
+\address[label3]{Department of Mechanical Engineering, National University of Singapore, Singapore}
+\ead{mperkj@nus.edu.sg}
+\cortext[RJ]{Corresponding author - Tel: + 65 6601 2547; Fax: +65 6779 1459}
+\begin{abstract}
+In this paper, a comprehensive study on the parametric and auto-parametric instability of taut moorings due to combined hydrodynamic and ice loads is conducted. In this regard, a modal analysis is performed that includes the geometric nonlinearity of the mooring cables along with the combined effect of hydrodynamic and ice loads. The stability of the mooring cable around the 2:1 internal resonance region is analysed in the presence of out-of-plane ice-load which is calculated using a semi-empirical ice load-penetration evolution. It is shown that the geometric nonlinearity along with coupled hydrodynamic and ice loads play an important role in the modal interaction which may lead to the large amplitude vibrations, i.e., instability. Stability boundaries near the 2:1 resonance region are determined through simulations by observing the onset of the oscillation in the out-of-plane modes. Beyond this boundary, the  instability or jump in the response may occur and this could lead to the fatigue failure of the mooring
+cables. A parametric study on the stability boundary based on varying cable pretension and fairlead slope is also conducted. This reveals that increasing the cable pretension and the fairlead slope can effectively mitigate the parametric and auto-parametric instability in out-of-plane modes of mooring cables.
+\end{abstract}
+\begin{keyword}
+parametric instability; moorings; ice load; resonance, stability boundary.
+\end{keyword}
+\end{frontmatter}
+% % %
+\section{Introduction}
+Station keeping system for Arctic floaters, such as mooring cable requires an innovative engineering design coupled with a detailed investigation on its resistance against the impact loading. The ice-induced vibration, together with the wave and current actions, imposes a strong demand on the mooring cable design. It is well known that the structures supported by flexible cables such as cable-stayed bridges, mooring systems, etc., are often prone to large amplitude vibrations due to large flexibility and complex loading situations from surrounding medium \cite{Nayfeh_2004}. These large amplitude vibrations of long flexible cables are often attributed to the internal resonance phenomena. The geometrical and/or mechanical control parameters under certain excitation frequency enhance modal coupling, even in the absence of external excitation \cite{Rega_2004}.
+
+Theoretically, considering the geometric nonlinearity gives a different combination of quadratic and cubic nonlinearities which explains various types of planar and non-planar internal resonance phenomena of suspended cables \cite{Gonzalez_2008}. Srinil et al. \cite{Srinil_2007a,Srinil_2007b} in a series of articles on planar 2:1 resonant, multi-modal analysis of horizontal/inclined cables reported that the quadratic and cubic nonlinearities of system  are resonantly coupled with the amplitudes, frequencies, dynamic configurations and the velocities associated with the resonant nonlinear normal modes. Gonzalez-Buelga et al. \cite{Gonzalez_2008} demonstrated that the nonlinear coupling between the in-plane and out-of-plane motions influences the parametric and auto-parametric excitation of the inclined cables. It is also reported that the out-of-plane response of an inclined cable may become unstable when the in-plane excitation frequency is close to the second natural frequency. MacDonald et al. \cite{Macdonald_2010} extended this theory and generalised it for any natural frequency. A comprehensive study of the parametric and auto-parametric cable dynamics can be found in Wagg and Neild \cite{Wagg_2009}. It should be noted that in most of these analyses, the effect of the surrounding medium is neglected. Coupled fluid-structure interaction effect due the hydrodynamic force \cite{Chakrabarti_1987} on the cable due to the drag and inertia can lead to more complex dynamic behaviour. 
+
+Cables used in mooring systems are often exposed to strong hydrodynamic forces which can lead to much more complex planar and non-planar internal resonance phenomena of suspended cables \cite{Iyengar_1988}. Mooring system of Arctic floaters involving long flexible cable may experience a multiple internal resonance due to combined hydrodynamic and ice forces. However, the standard mathematical models in commercial software which are often used in the design of station keeping systems with moorings, do not even consider the higher order terms in strain formulation (geometric nonlinearity) and thereby, generally ignores the internal resonance phenomena. In literature, a few theoretical studies \cite{Howell_1993, Zhu_1999} can be found that deal with the stability of coupled floater-mooring systems and it was reported that the floater exhibits a chaotic motion due to cable snapping. However, these studies were also limited to linear cable dynamics. Gobat and Grosenbaugh \cite{Gobat_2006} proposed a mathematical model for the underwater cable that can deal with both geometric and material nonlinearities. However, it is worth mentioning that a model to analyse various planar/non-planar (e.g., 2:1, 3:1) internal resonance phenomena due to the inherent combination of system quadratic and cubic nonlinearities in the case of submerged cables is lacking. A typical example where such phenomena may trigger is the level ice loads encountered by the floaters in the Arctic. Such floaters are typically equipped with disconnection or reconnection mechanism for mooring system to avoid larger ice features, such as iceberg and multi-year ridge ice. However, the station keeping system still needs to withstand strong and harsh loading situations originating from its interaction with single year level ice, which generates forces due to the breaking, sliding, rotation of ice floe against the floater. Therefore, the present manuscript delves deeper into the dynamics of submerged cables focusing on the 2:1 internal resonance phenomena in the presence of combined hydrodynamic and ice loads.
+
+%In the present industry practice, however, the mathematical models and software used for designing the mooring cables for offshore structures rely on the linear strain theory. Moreover, 
+
+Estimating ice load on a floating structure is difficult due to the uncertainty associated with a broad range and variety of ice features and constitutive properties. There has been a lot of effort to predict the ice load both experimentally and theoretically. 
+However, most of the theories utilized in predicting the ice load are primarily based on fixed offshore structures, such as jack-up rig, gravity-based concrete platform and bridge piers \cite{ISO_2010}. It is well known that the impact of ice load on a floater mooring system is fundamentally different from the fixed structure due to the flexibility exerted by the mooring system \cite{Lu_2014,Lu_2015}. Aksnes \cite{Aksnes_2010,Aksnes_2011} studied ice load on an Arctic floater from a level-ice field assuming three distinct phases, i.e., breaking, rotation and sliding. Typically, in an Arctic floater downward breaking slope at the ice level is preferred, since this assists in the ice breaking under flexure \cite{Lohne_2012}. Typically, the bending strength ($\sim$0.5 MPa) of ice is much smaller in comparison to the ice crushing strength ($\sim$2.0 MPa), thus reducing the global ice load as well as the potential of ice-induced vibration triggered by ice crushing. The breaking of level-ice, when in contact with the downward breaking slope occurs within a very short period, just as the tensile stress at the top of the level-ice exceeds the fairly small tensile strength of the ice. Next, follows a rotation phase of the broken ice pieces. Subsequently, the broken ice-floe slides along the slope of the floater and a new cycle of ice breaking-rotating-sliding begins. Numerical modelling of level-ice field is usually done by assuming it to be an infinite thin plate supported on a Winkler-type elastic foundation \cite{Nevel_1958,Nevel_1961}. Details of this method can be found in \cite{Kerr_1976,Squire_1996} and literature cited therein. Even though this method is widely used for ice loading prediction; modelling of complex ice fracture such as breaking, crack propagation, broken ice-field and rubble formation requires additional treatment which are empirical and/or ad-hoc formalism. To model the breaking of ice, subsequent crack propagation and rubble formation, several numerical methods like Discrete Element Method (DEM), Smoothed Particle Hydrodynamics (SPH) are used (see, e.g., \cite{Ji_2013,Das_2015}). However, the results from these methods are often not verified due to the lack of data for comparison and uncertainty involved in the phenomena \cite{Ji_2013}. Furthermore, the extreme uncertainties associated with the ice properties and ice-structure interaction mechanisms result in significant scatters in the predicted ice load values using different numerical tools. As a result, many studies apply the two-dimensional beam on an elastic foundation based theories to analyse the failure of an ice sheet interacting with a sloping structure (e.g., \cite{Lu_2014, Croasdale_1994}). Subsequent studies employ the solution to calculate the ice breaking loads for various types of sloping structures \cite{Kotras_1983, Lubbad_2011}. In this work, the elastic foundation theory by Croasdale \cite{Croasdale_1994} is implemented in a commercial hydrodynamics and mooring analysis package to estimate the ice load on floating platform. 
+
+In the present study, an attempt is made to investigate the stability of a cable in a situation involving coupled hydrodynamic and ice loads. A unidirectional periodic loading is considered and thereby, the floater will have two translational motions, i.e., surge and heave. The floater motions will cause a support excitation at the pinned connection between the floater and mooring. This phenomenon is modelled as a base excitation at the top support point of the mooring cable. An analytical model based on modal analysis of underwater submerged cable considering its geometric nonlinearity is presented. Introducing the geometric nonlinearity into the model enables coupling between the different modes, which is not included in the standard linear analysis of integrated mooring system. The support excitation frequency is chosen to be close to the cable's natural frequency of the second in-plane mode. Therefore, the in-plane mode is excited directly. Ice load is applied at the fairlead from an out-of-plane direction as a pulse load. Hence, the out-of-plane  mode is  excited  parametrically. It is observed that the out-of-plane mode responses show instability under certain base excitation amplitude, i.e., the responses due to the pulse load from the ice impact never decay. The instability in the responses arises from the interaction between the different modes, i.e., auto-parametric excitation, which cannot be captured by the linear analysis. This phenomenon may lead to the fatigue failure of the mooring cables. Numerous simulations are carried out to determine the stability boundary of different out-of-plane modes for various amplitudes and excitation frequencies. The stability boundaries are also determined using the harmonic balance method to verify the results obtained from the modal analysis. 
+
+The paper is organized as follows: In Section 2, the particulars of the problem are addressed and a method to calculate the ice impact load along with the cable model is presented. Detailed mathematical formulation for modal analysis of a taut cable is also presented in the same section. Section 3 contains a comparison of the proposed model with experiments for validation. In Section 4, the key results obtained from stability analysis of taut mooring cable subjected to coupled hydrodynamic and ice loads are presented. Finally, conclusions are drawn in Section 5.
+% % %
+\section{Problem description and methodology} 
+In this study, the stability of a mooring cable is analysed in the presence of a unidirectional periodic load and out-of-plane ice load. The floater motion will cause a significant movement at the fairlead connection. This is mathematically modelled as a base excitation in the present study. To keep the formulation simple, a unidirectional wave is assumed and therefore, the floater will oscillate in the $x$-$z$ plane. It is assumed that the connection point between the floater and mooring will experience the same displacement and acceleration as that of the floater. For simplicity of the model, this base excitation at the top connection point of the mooring is assumed as a sinusoidal displacement time history. It should be noted that the base excitation frequency is assumed to be close to the second natural frequency of the mooring cables. It is also assumed that the bottom point of the mooring is pinned to the seabed and the top point is pinned to the floater. The primary focus is to investigate the stability of the out-of-plane modes near the 2:1 resonance region in the presence of out-of-plane ice load. Ice load on the mooring fairlead is estimated using a developed ice load formulation for floating structures and implemented in a commercial package HARP \cite{HARP}. Using this formulation, an estimation of fairlead acceleration time history is obtained for ice load. The mooring which experiences the maximum load is studied for the stability in this work. Figure \ref{floater_ice} depicts a schematic diagram of the problem illustrating wave and ice loading over a generic floater. Methodology to predict the out-of-plane ice load is presented in the next subsection. Here it should be mentioned that in the present study mooring system is considered to be very steep, but the method would also work in less steep moorings (less water depth or longer mooring lines).
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/FI_a.eps}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/FI_b.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Illustration of (a) unidirectional wave and (b) out-of-plane pulse load due to ice  on floater stationed with mooring cable.}
+	\label{floater_ice}
+\end{figure}
+% % %
+\subsection{Estimation of ice load}
+%ISO19906 \cite{ISO_2010} provides the ice load estimation which is  primarily based on fixed offshore structures, such as jack-up rig, gravity-based concrete platform and bridge piers. It is well known that the impact of ice load on a floater’s mooring system is fundamentally different from the fixed structure due to the flexibility afforded by the mooring system \cite{Lu_2014,Lu_2015}. However, the extreme uncertainties associated with the ice properties and ice-structure interaction mechanisms result in significant scatters in the predicted ice load values using different numerical tools. 
+
+%In Fig. \ref{ice_load} ice load on a floating structure as function of penetration length is provided .
+% Aksnes \cite{Aksnes_2010} proposed an estimate of 
+%Ice load for floating structures by considering the ice load evolution in three distinct phases, i.e. friction,  breaking and rotation. Figure \ref{ice_load} identifies these three stages in both ice load and penetration length direction.
+
+
+In this study, an idealized load versus penetration evolution is utilized to estimate the load on floating structure using penetration as the only governing parameter. Figure \ref{ice_load} illustrates the ice load formulation implemented in a commercially available coupled floater and mooring systems analysis software (HARP). It is assumed that the ice-field is made up of managed ice and the size of ice floes are large enough to exert the assumed load. Hence, ice-structure interaction can be estimated as a combination of three distinct phases, viz., breaking phase (flexural failure of ice), rotation phase and sliding phase (of the managed ice). The peak ice load from first first-year level ice can be estimated using the formulation based on 2D beam bending on an elastic foundation derived by Croasdale and Cammaert \cite{Croasdale_1994}. The ice load in the horizontal direction $(F_H)$ on an arctic floater with downward breaking slope is given as \cite{Timco_1997}
+
+\begin{equation}\label{ice_load_horz} 
+F_H=C_3D{\sigma }_f{\left(\frac{{\rho }_wgh^5}{E}\right)}^{0.25}\left(1+\frac{{\pi }^2L}{4D}\right)+C_4t_shD\left({\rho }_w-{\rho }_i\right)g,      
+\end{equation} 
+where $C_3=0.68\frac{{\xi }_3}{{\xi }_4}$; $C_4={\xi }_3\left(\frac{{\xi }_3}{{\xi }_4}-\mathrm{cot}(\alpha )\right)$; ${\xi }_3=\mu {\mathrm{cos} \left(\alpha \right)\ }-\mathrm{sin}(\alpha )$ and ${\xi }_4=\mu {\mathrm{sin} \left(\alpha \right)\ }+\mathrm{cos}(\alpha )$. Here in Eq. \eqref{ice_load_horz}, $\mu$ is the coefficient of friction, $h$ is thickness of the first year level ice, $t_s$ is the depth of ice rubble and generally assumed to be equal to the draught of the cone section. The slope angle ($\alpha$) is taken as negative for downward sloping cones and it is measured from the same horizontal plane. The relation between the vertical and horizontal force is given by Croasdale and Cammaert \cite{Croasdale_1994} as
+\begin{equation} \label{ice_load_horz2} 
+F_H=F_V\frac{\mu {\mathrm{cos} \left(\alpha \right)\ }-\mathrm{sin}(\alpha )}{\mu {\mathrm{sin} \left(\alpha \right)\ }+\mathrm{cos}(\alpha )}=F_V\xi.              
+\end{equation} 
+
+\begin{figure}
+\centering
+	\includegraphics[width=.5\linewidth]{Figs/ice_load_dia.eps}
+	\caption{Schematic diagram of the ice load penetration evolution.}
+	\label{ice_load}
+\end{figure}
+
+A loss of contact between the ice and the floating structure is assumed and this is indicated by the load drop right before the breaking phase begins (as shown in Fig. \ref{ice_load}). In this formulation, it is assumed that ice load evolves with the extent of ice penetration. Ice penetration is defined as the relative displacement between the drifting level ice and the floating structure. Hence, the drift velocity ($V_{ice}$) of level ice-field does not influence peak-ice load, but it has a significant effect on the ice load evolution.
+
+The load during the rotation phase ($F_l$) and breaking ($F_t$) depends on both vessel and ice properties. Based on the model tests by Aksnes \cite{Aksnes_2011},  the current manuscript assumes the load during the rotation phase ($F_l$) and breaking ($F_t$) to be 15$\%$ and 10$\%$ of the peak load, respectively. The duration of each loading phase is assumed to be constant throughout the simulation. This duration multiplied by the ice drift velocity ($V_{ice}$), gives the ice penetration associated with each loading phase. As indicated in Fig. \ref{ice_load}, the sum of ice penetration during rotation/sliding phase ($\delta_d$) and the load drop phase ($\delta_r$) is equal to the ice breaking length. According to model tests reported by Aksnes \cite{Aksnes_2011}, the ice breaking length ranges between 5 to 7 times its thickness ($h$). Whereas, the duration of the ice breaking phase, depicted in Fig. \ref{ice_load} as the sum of $\delta_p$ and $\delta_f$, is assumed to be 6 seconds.
+
+%Finally, to utilize the accurate hydrodynamics and mooring property of the floater, a commercially available coupled floater and mooring systems analysis software (HARP) is employed. 
+Coupled floater mooring analysis is performed using Hull And Riser/mooring Program (HARP), in which the ice load-floater-penetration algorithm is implemented as user subroutine. HARP provides the ice load algorithm with the displacement, velocity and acceleration at the reference point of the floater (centre of water plane) in each time step. The subroutine then derives the body force for the next time step corresponding to the penetration (replaced by relative displacement for a floater) and supplies it to the coupled analysis program. In the next step, the combined analysis program calculates the floater motion using the applied force. The coupled analysis continues to run in this manner for the total duration of the analysis. Figure \ref{flowchart} presents the proposed algorithm as a coupled iterative cycle.
+\begin{figure}
+	\begin{center}
+		\tikzstyle{block1} = [rectangle, draw, text width=25em, text centered, minimum height=4em]
+		\tikzstyle{line} = [draw, -latex']
+		\begin{tikzpicture}
+		\node [block1] (1) {Coupled analysis software provides displacement, velocity and acceleration of the floater at each step};
+		\node [block1, below =1cm of 1] (2) {Proposed algorithm utilizes ice load-penetration formulation based on ice vs. fixed structure	to calculate the ice force for the next step by replacing the penetration value with relative displacement between the floater and the ice feature};
+		\node [block1, below =1cm of 2] (3) {The algorithm supplies the body force to the coupled analysis software which is used to calculate the motion of the floater for that step};
+		
+		\path [line] (1) -- (2);
+		\path [line] (2) -- (3);
+		\path [line] (3) --(5,-6cm) |- node {} (1);
+		\end{tikzpicture}
+		\caption{Flowchart representing the proposed algorithm for coupled ice-structure interaction of floater-mooring system.}
+		\label{flowchart}
+	\end{center}
+\end{figure}
+
+
+%the ice load evolution in three distinct phases, i.e. friction, breaking and rotation. In Fig. \ref{ice_load} an idealized ice-load vs penetration evaluation curve is presented and this ice load evolution curve is implemented in a commercially available coupled floater and mooring systems analysis software (HARP). 
+
+
+%utilized to estimate the ice-load on a floating structure. In Fig. \ref{ice_load} ice load formulation implemented on a floating structure as function of penetration length is illustrated. Ice penetration is defined as the relative displacement between the drifting level ice and the floating structure.
+
+ %Therefore, the components of dynamic ice load which relate directly to the velocity and acceleration of the floater are neglected. Subsequently, following the findings of Lu et al. \cite{Lu_2015}, this study assumes a simplified ice load penetration evolution considering the ice load evolution in three distinct phases, i.e. friction, breaking and rotation as shown shown schematically in Fig. \ref{ice_load}. 
+% % %
+\subsection{Modelling of cable dynamics}
+A brief description of the cable dynamics equations is presented in this section.  Consider a simply supported inclined cable of length $l$ with end points at $a$ and $b$, as shown in Fig. \ref{floater_ice}. The line joining $a$ and $b$, i.e., the chord line of the cable is assumed to be the $x$-axis of the coordinate system. It is assumed that this chord line and the equilibrium position of the sagged cable due to the gravity are in the $x$-$z$ plane. Therefore, the motion of the cable in the $x$-$z$ plane is referred to as the in-plane motion and in the direction perpendicular to the $x$-$z$ plane, i.e., the $y$-direction is referred to as the out-of-plane motion. The angle of inclination of the cable, $\theta$, is defined by the angle made by the chord line with the horizontal. The deflections of the cable in $x$, $y$ and $z$ directions are represented as $u$, $v$ and $w$ respectively. The static deflections of the cable in $x$, $y$ and $z$ directions due to the sag are given as
+\begin{equation} \label{GrindEQ__3_} 
+u_s=0,v_s=0, ~\mbox{and}~ \ w_s=\frac{\rho g{A\mathrm{cos} \theta \ }}{T_{sx}}\left(\frac{lx}{2}-\frac{x^2}{2}\right),              
+\end{equation} 
+respectively. Here, $T_{sx}$ is the tension in cable due to sag, $\rho $ is the density of the cable material, $g$ is the acceleration due to gravity, $A$ is the cross-sectional area of the cable.  It should be noted that the suffix `$s$' represents the quantities referred to the static equilibrium state.
+\subsubsection{Equation of motion}
+Governing differential equations of the cable vibrations are given as \cite{Wagg_2009,Warnitchai_1995}\\
+In-plane:
+\begin{equation}    \label{GrindEQ__4_} 
+T_{dx}\frac{{\partial }^2w_s}{\partial x^2}+\left(T_{sx}+T_{dx}\right)\frac{{\partial }^2w_d}{\partial x^2}+F_zA=\rho A\frac{{\partial }^2w_d}{\partial t^2},
+\end{equation}
+Out-of-plane:
+\begin{equation}  \label{GrindEQ__5_} 
+\left(T_{sx}+T_{dx}\right)\frac{{\partial }^2v_d}{\partial x^2}+F_yA=\rho A\frac{{\partial }^2v_d}{\partial t^2}.              
+\end{equation}
+Here, $T_{dx}$ is the dynamic tension. The suffix `$d$' represents the quantities of the dynamic state and $F_y$ and $F_z$ represent the force per unit area in the $y$ and $z$ directions, respectively. In this study, it is assumed that the constitutive property of the cable is linear elastic. Therefore, the dynamic tension ($T_{dx}$) can be written in terms of the dynamic strain (${\epsilon }_d$) as
+\begin{equation} \label{GrindEQ__6_} 
+T_{dx}=AE{\epsilon }_d,               
+\end{equation} 
+where $E$ is the Young's modulus. The dynamic strain  ${\epsilon }_d$ can be expressed using the finite strain theory as
+\begin{equation} \label{GrindEQ__7_} 
+{\epsilon }_d=\frac{\partial u_d}{\partial x}+\frac{1}{2}{\left(\frac{\partial v_d}{\partial x}\right)}^2+\frac{1}{2}{\left(\frac{\partial w_d}{\partial x}\right)}^2+\frac{dw_s}{dx}\frac{\partial w_d}{\partial x}. 
+\end{equation} 
+
+To derive a general formulation for the cable with support motion, the boundary condition at the top (at $x=0$) is considered as $u\left(0,t\right)=u_a(t)$, $v\left(0,t\right)=v_a(t{)}$ and $w\left(0,t\right)=w_a(t{)}$ and at the bottom (at $x=l)$ is taken as $u\left(l,t\right)=u_b(t)$, $v\left(l,t\right)=v_b(t)\ $and $w\left(l,t\right)=w_b(t)$.
+% % %
+\subsubsection{Quasi-static analysis for support motion}
+Here, it should be noted that the boundary conditions are time varying and therefore, the cable responses can be separated into two components, viz., the quasi-static and the modal components. Quasi-static component satisfies the time varying boundary condition, whereas the modal component satisfies the static simply supported boundary condition.  Therefore, splitting the dynamic components into quasi-static and modal components yields
+\begin{equation} \label{GrindEQ__8_} 
+u_d=u_q+u_m, v_d=v_q+v_m ~\mbox{and}~ w_d=w_q+w_m.        
+\end{equation} 
+Subsequently, the strain in the cable can be written by substituting Eq. \eqref{GrindEQ__8_} into Eq. \eqref{GrindEQ__7_} as
+\begin{equation} \label{GrindEQ__9_} 
+{\epsilon }_d=\frac{\partial u_q}{\partial x}+\frac{dw_s}{dx}\left(\frac{\partial w_q}{\partial x}+\frac{\partial w_m}{\partial x}\right)+\frac{1}{2}{\left(\frac{\partial v_m}{\partial x}\right)}^2+\frac{1}{2}\left({\left(\frac{\partial w_q}{\partial x}\right)}^2+2\frac{dw_q}{dx}\frac{\partial w_m}{\partial x}+{\left(\frac{\partial w_m}{\partial x}\right)}^2\right).   
+\end{equation} 
+Since the support excitation is considered only in the $x$-$z$ plane, the quasi-static component of the displacement in the out-of-plane direction turns out to be zero.  Subsequently, the displacement field due to the base excitation at the top support of the cable can be obtained as (see \cite{Wagg_2009,Warnitchai_1995} for the detailed derivation)
+\begin{equation} \label{GrindEQ__10_} 
+\begin{split}
+u_q=u_a+\frac{E_q}{E}\left(u_b-u_a\right)\left(\frac{x}{l}\right)+\frac{{\lambda }^2}{4}\ \frac{E_q}{E}\left(u_b-u_a\right)\left[\left(\frac{x}{l}\right)-2{\left(\frac{x}{l}\right)}^2+\frac{4}{3}{\left(\frac{x}{l}\right)}^3\right]\\-\frac{1}{2}(w_b-w_a)\frac{\gamma Al}{T_{sx}}\left[\left(\frac{x}{l}\right)-{\left(\frac{x}{l}\right)}^2\right],\\
+v_q=v_a+\left(v_b-v_a\right)x/l,\\
+w_q=w_a+\left(w_b-w_a\right)\left(\frac{x}{l}\right)- \frac{\gamma E_qA^2l}{{2T}^2_{sx}}\left(u_b-u_a\right)\left[\left(\frac{x}{l}\right)-{\left(\frac{x}{l}\right)}^2\right],
+\end{split}
+\end{equation} 
+where $E_q$ is expressed as
+\begin{equation} \label{GrindEQ__11_} 
+E_q=\frac{1}{1+{\lambda }^2/12}E.             
+\end{equation} 
+${\lambda }^2$ represents the Irvine's parameter and can be expressed as
+\begin{equation} \label{GrindEQ__12_} 
+{\lambda }^2=\frac{E{\gamma }^2l^2A^3}{T^3_{sx}}.             
+\end{equation} 
+%%%%%%%
+\subsubsection{Modal analysis}
+In the modal analysis, it is assumed that the axial modal motion is small compared to the vertical and/or out-of-plane modal motions and thus, it is neglected, i.e.,$\ {\ u}_m=0$. Modal displacement should satisfy the simply supported boundary condition at both ends of the cable, i.e., $u\left(0,t\right)=0,\ v\left(0,t\right)=0,\ \ w\left(0,t\right)=0,\ \ u\left(l,t\right)=0,\ \ v\left(l,t\right)=0\ \mathrm{and}\ w\left(l,t\right)=0$.\\
+Modal components of the displacement response can be written as
+\begin{equation} \label{GrindEQ__13_} 
+\begin{split}
+u_{m\ }\left(x,t\right)&=0,\\
+v_{m\ }\left(x,t\right)&=\int^{\infty }_{n=1}{{\phi }_n\left(x\right)y_n(t)},\\ 
+w_{m\ }\left(x,t\right)&=\int^{\infty }_{n=1}{{\psi }_n\left(x\right)z_n(t)},
+\end{split}
+\end{equation} 
+where the expression for the mode shapes is given as
+\[{\phi }_n\left(x\right)={{\mathrm{sin}} \frac{n\pi x}{l}\ }\ \text{for}\ n=1,2,3\dots \dots \] 
+\begin{equation} \label{GrindEQ__14_} 
+{\psi }_n\left(x\right)={{\mathrm{sin}} \frac{n\pi x}{l}\ }\ \text{for}\ n=1,2,3\dots \dots  
+\end{equation} 
+
+In this context, it should be mentioned that the assumed mode shapes are determined by satisfying the simply supported boundary condition.  Here, it is important to note that odd in-plane modes are approximated using a sinusoidal expression. This may incur some error in the odd in-plane modes. However, in the present paper, only one even mode is considered and this assumption has no influence on the results presented.
+%
+Next, the standard Galerkin method is applied to convert the governing partial differential equations of cables into a set of non-linear ordinary differential equations using the variational technique (see \cite{Wagg_2009,Warnitchai_1995} for the detailed derivation). By multiplying Eq. \eqref{GrindEQ__4_} by ${\phi }_n$, substituting Eqs. \eqref{GrindEQ__9_}, \eqref{GrindEQ__10_} and \eqref{GrindEQ__13_} and then integrating the equation over the length, finally gives the out-of-plane modal motions as
+\begin{equation} \label{GrindEQ__15_} 
+\begin{split}
+m_{yn}\left({\ddot{y}}_n+2{\xi }_{yn}{\dot{y}}_n+{\omega }^2_{yn}y_n\right)+\sum_k{v_{nk}y_n\left(y^2_k+z^2_k\right)}+\sum_k{2{\beta }_{nk}y_nz_k}+\\2{\eta }_n\left(u_b-u_a\right)y_n+\zeta_n\left({\ddot{v}}_a+{\left(-1\right)}^{n+1}{\ddot{v}}_b\right)=F_{yn}.    
+\end{split}
+\end{equation} 
+%
+Similarly, the in-plane cable motion can be obtained by multiplying Eq. \eqref{GrindEQ__5_} by ${\psi }_n$, substituting Eqs. \eqref{GrindEQ__9_}, \eqref{GrindEQ__10_} and \eqref{GrindEQ__13_} and then integrating the equation over the length as
+\begin{equation} \label{GrindEQ__16_} 
+\begin{split}
+m_{zn}\left({\ddot{z}}_n+2{\xi }_{zn}{\dot{z}}_n+{\omega }^2_{zn}z_n\right)+\sum_k{v_{nk}y_n\left(y^2_k+z^2_k\right)}+\ \ \sum_k{2{\beta }_{nk}z_nz_k}+\sum_k{{\beta }_{nk}\left(y^2_k+z^2_k\right)} +\\2{\eta }_n(u_b-u_a)z_n+{\zeta}_n\left({\ddot{w}}_a+{\left(-1\right)}^{n+1}{\ddot{w}}_b\right)+{\alpha }_n{(\ddot{u}}_b-{\ddot{u}}_a)=F_{zn}.   
+\end{split}
+\end{equation} 
+
+Here, in Eqs. \eqref{GrindEQ__15_} and \eqref{GrindEQ__16_}, `$n$' represents the $n$-th mode. Therefore, the generalized displacements of the cable in the $n$-th out-of-plane and in-plane modes are symbolized as $y_{n}$ and $z_{n}$. The quantities $m_{yn}$ and $m_{zn}$ are the modal masses and taken as $m_{yn}=m_{zn}=1/2\rho Al$, where $\rho $ is the density of the cable material. The terms $v_{nk}$, $\beta_{nk}$, $\zeta_n$, $\alpha_n$, $\eta_n$ and $k_n$ are as follows: 
+\begin{equation} \label{GrindEQ__17_} 
+\begin{split}
+v_{nk}=\frac{EA{\pi }^4n^2k^2}{8l^3}, {\beta }_{nk}=\frac{EA\pi \gamma n^2}{4l{\sigma }_s}\left(\frac{1+{\left(-1\right)}^{k+1}}{k}\right),\\
+{\zeta }_n=\frac{2m}{n\pi \ }, {\alpha }_n=\frac{2m\gamma lE_q}{n^3{\pi }^3{{\sigma }_s}^2}\left(1+{\left(-1\right)}^{n+1}\right),\\
+{\eta }_n=\frac{E_qA{\pi }^2n^2}{4l^2}, k_n=\left(\frac{2{\lambda }^2}{{\pi }^4n^4}\right){\left(1+{\left(-1\right)}^{n+1}\right)}^2. 
+\end{split}        
+\end{equation} 
+The out-of-plane ($\omega_{yn}$) and in-plane ($\omega_{zn}$) natural frequencies are given respectively as
+\begin{equation} \label{GrindEQ__18_} 
+{\omega }_{yn}=\frac{n\pi }{l}\sqrt{\frac{{\sigma }_s}{\rho }} ~\mbox{and}~ {\omega }_{zn}=\frac{n\pi }{l}\sqrt{\frac{{\sigma }_s}{\rho }\left(1+k_n\right)}.
+\end{equation} 
+The modal components of the external in-plane ($F_{yn}$) and out-of-plane forces ($F_{zn}$) acting on the cable, respectively, are given by
+\begin{equation} \label{GrindEQ__19_} 
+\begin{split}
+F_{yn}=\int^l_0{F_y{\phi }_ndx},\\
+F_{zn}=\int^l_0{F_z{\psi }_ndx}.    
+\end{split}        
+\end{equation} 
+
+% % %
+\subsubsection{Modal analysis of underwater taut cable}
+In this section, a modal based procedure for the underwater cable is presented. The cable model presented above does not consider the drag and inertia/added mass forces due to the fluid-structure interaction. In the present paper, the effects of these forces are included in the modal analysis. Assuming that the characteristic structural dimension of the mooring cable is smaller than the water wavelength, the wave forces are formulated using the modified Morison equation (relative velocity model) which is composed of two components: the inertia and drag forces. The hydrodynamic force per unit length of the cable is given as
+\begin{equation} \label{GrindEQ__20_} 
+F_i={{C}}_{{M}}{{A}}_{{I}}{\dot{V}}^w_i-{{C}}_{{A}}{{A}}_{{I}}{\ddot{u}}_i+{{C}}_{{D}}{{A}}_{{D}}{|}V^w_i{|}V^w_i-C^{'}_D{{A}}_{{D}}\ |{\dot{u}}_i|{\dot{u}}_i,
+\end{equation} 
+where ${{A}}_{{I}}{=}{\rho }_wA$ and ${{A}}_{{D}}{=1/2\ }{\rho }_w{d}$, $C_{M }$, $C_{A}$ and $C_{D} / C^{'}_D$ are the inertia, added mass and drag coefficients, ${\dot{V}}^w_i$ and $V^w_i$ are the instantaneous local water-particle velocity and acceleration,$\ {\dot{u}}_i$ and ${\ddot{u}}_i\ $are the velocity and acceleration of the cable respectively, ${\rho }_w\ $is the water density, ${d}$ is the diameter of the cable. The suffix `$i$' symbolises the force component in the vector direction.
+
+The modal component of the Morison forces can be obtained using the relation given in Eq. \eqref{GrindEQ__19_}, in which the force terms ($F_y$ and $F_z$) are the vector components of the Morison force in the $y$ and $z$ directions. Therefore, the modal component of the Morison force in the out-of-plane direction can be obtained as
+\begin{equation} \label{GrindEQ__21_} 
+F_{yn}=-\int^l_0{\left(C_AA_I\sum^{\infty }_{k=1}{{\phi }_k}{\ddot{y}}_k\right)}{\phi }_ndx-\int^l_0{\left(C^{'}_DA_D\left|\sum^{\infty }_{k=1}{{\phi }_k}{\ddot{y}}_k\right|\sum^{\infty }_{k=1}{{\phi }_k}{\ddot{y}}_k\right)}{\phi }_ndx.    
+\end{equation} 
+
+Here, it should be noted that in Eq. \eqref{GrindEQ__20_}, the fluid particle velocity ($V^w_i$) and acceleration ($V^w_i$) in the out-of-plane direction turns out to be zero, since a unidirectional wave is assumed. Therefore, Eq. \eqref{GrindEQ__21_} can be further simplified as 
+\begin{equation} \label{GrindEQ__22_} 
+F_{yn}=-C_AA_I\frac{l}{2}{\ddot{y}}_n-C^{'}_DA_D\frac{l{\left(\mathrm{cos}\pi n-1\right)}^2\left(\mathrm{cos}\pi n+2\right)}{3\pi n}{\dot{y}}_n\left|{\dot{y}}_n\right|.     
+\end{equation} 
+The relationships used in the simplification of Eq. \eqref{GrindEQ__21_} are as follows: 
+\begin{equation} \label{GrindEQ__23_} 
+\begin{split}
+\int^l_0{{\phi }_n{\phi }_k}dx=\left\{ \begin{array}{c}
+0,\ \ n\neq k \\ 
+\frac{l}{2},\ \ n=k \end{array}
+\right.,\\
+\int^l_0{{\phi }^2_n{\phi }_k}dx=\left\{ \begin{array}{c}
+0, n\neq k \\ 
+\frac{l{(\mathrm{cos}\pi n-1)}^2(\mathrm{cos}\pi n+2)}{3\pi n},\ n=k \end{array}
+\right.,\\
+\int^l_0{{\phi }_n}dx=\frac{l}{n\pi }\left[1+{\left(-1\right)}^{n+1}\right]. 
+\end{split}           
+\end{equation} 
+Similarly, the in-plane modal component of the Morison force can be obtained as
+\begin{equation} \label{GrindEQ__24_}
+\begin{split}
+F_{yn}=-\int^l_0{\left(C_MA_I{\dot{V}}^w_y\right)}{\psi }_ndx-\int^l_0{\left(C_AA_i\sum^{\infty }_{k=1}{{\psi }_n}{\ddot{y}}_k\right)}{\psi }_ndx- \\ \int^l_0{\left({\ }{{C}}_{{D}}{{A}}_{{D}}{|}V^w_y{|}V^w_y\right)}{\psi }_ndx-\int^l_0{\left(C^{'}_DA_D\left|\sum^{\infty }_{k=1}{{\psi }_n}{\ddot{y}}_k\right|\sum^{\infty }_{k=1}{{\psi }_n}{\ddot{y}}_k\right)}{\psi }_ndx.
+\end{split}
+\end{equation}
+Assuming the fluid particle velocity to be constant around the cable for simplicity, Eq. \eqref{GrindEQ__24_} reduces to
+\begin{equation} \label{GrindEQ__25_}
+\begin{split}
+F_{zn}=&C_MA_I\frac{l}{n\pi }\left[1+{\left(-1\right)}^{n+1}\right]{\dot{V}}^w_z-C_AA_i\frac{l}{n\pi }{\left[1+{\left(-1\right)}^{n+1}\right]\ddot{z}}_n+ \\ &C_DA_D\frac{l{\left(\mathrm{cos}\pi n-1\right)}^2\left(\mathrm{cos}\pi n+2\right)}{3\pi n}\left|{\dot{V}}^w_z\right|{\dot{V}}^w_z-C^{'}_DA_D\frac{l{\left(\mathrm{cos}\pi n-1\right)}^2\left(\mathrm{cos}\pi n+2\right)}{3\pi n}{\dot{z}}_n\left|{\dot{z}}_n\right|.  
+\end{split}
+\end{equation} 
+%
+It is to be noted that for the simplification of Eq. \eqref{GrindEQ__24_}, the expressions of Eq. \eqref{GrindEQ__23_} are used, since the same mode shapes are assumed for both in-plane and out-of-plane motions.
+%
+As mentioned earlier, the prime focus of this study is to investigate $2$:$1$ internal resonance phenomenon between the modes. This occurs when the excitation frequency is twice and/or close to twice the first out-of-plane natural frequency of the mooring cable. It is experimentally observed that the first in-plane mode is sufficiently separated in frequency from the first out-of-plane mode and will not excite for the frequency ranges considered in investigating the 2:1 internal resonance. It is assumed that the contribution from the other modes is negligible for the frequency ranges considered. Therefore, in the present study, only the second in-plane mode and first two out-of-plane modes are considered. 
+
+In the present analysis, a unidirectional wave is considered whereby the floater will have the surge and heave motions and this will eventually excite the cable through the vertical and horizontal support motions. The surge and heave motions of the floater directly excite the cable through the connection between the floater and mooring. Therefore, the support motions due to the surge and heave can be represented by temporally varying the displacement field, $u_{a}(t)$ and $w_{a}(t)$, respectively. The ice load due to the impact is also considered through the base excitation. The displacement field is represented by $v_{a}(t)$.
+
+The boundary condition at the cable upper support (at $x=0$) will be $u\left(0,t\right)=u_a(t)$, $v\left(0,t\right)=v_a(t{)}$ and $w\left(0,t\right)=w_a(t{)}$. Lower support of the cable is assumed to be pinned to the sea bed; (at $x=l$) boundary condition are $u\left(l,t\right)=0$, $v\left(l,t\right)=0\ $and $w\left(l,t\right)=0$. It is assumed that the amplitude ($\Delta$) and the frequency ($\Omega$) of the surge and heave motions during the steady state response are the same. Therefore, in Eqs. \eqref{GrindEQ__15_} and \eqref{GrindEQ__16_} the end condition can be substituted as $u_a=\delta $ and $w_a=\delta $, where $\delta =\Delta \mathrm{cos} (\Omega t)$. In the present study, it is assumed that the ice floe imparts a sudden acceleration to the fairlead from the out-of-plane direction. This phenomenon is modelled by the term ${\zeta }_n\left({\ddot{v}}_a\right)$ of Eq. \eqref{GrindEQ__15_}, where ${\ddot{v}}_a$ is assumed to have a time-history profile with a rectangular pulse of very small duration.
+
+The modal frequencies of the out-of-plane and second in-plane modes are related as ${\omega }_{z2}={\omega }_{y2}={2\omega }_{y1}$. Now denoting ${\omega }_{z2}={\omega }_{y2}={\omega }_2$ and ${\omega }_{y1}={\omega }_1$, the modal equation of motion for the second in-plane and first two out-of-plane modes can be written using Eqs. \eqref{GrindEQ__15_} and \eqref{GrindEQ__16_} as
+\begin{equation} \label{GrindEQ__26_} 
+{\ddot{y}}_1+2{\xi }_{y1}{\omega }_1{\dot{y}}_1+{\omega }^2_1y_1+W_{11}y^3_1+W_{12}y_1\left(y^2_2+z^2_2\right)-N_1\delta y_1\ \ =-C^r_A{\ddot{y}}_1-C^r_D{\dot{y}}_1\left|{\dot{y}}_1\right|,  
+\end{equation} 
+\begin{equation} \label{GrindEQ__27_} 
+{\ddot{y}}_2+2{\xi }_{y2}{\omega }_2{\dot{y}}_2+{\omega }^2_2y_2+W_{21}y_2y^2_1+W_{22}y_2\left(y^2_2+z^2_2\right)-N_2\delta y_2=-C^r_A{\ddot{y}}_2,   
+\end{equation} 
+\begin{equation} \label{GrindEQ__28_} 
+{\ddot{z}}_2+2{\xi }_{z2}{\omega }_2{\dot{z}}_2+{\omega }^2_2z_2+W_{21}z_2y^2_1+W_{22}z_2\left(y^2_2+z^2_2\right)-N_2\delta z_2=-C^r_A{\ddot{z}}_2-B\ddot{\delta }.  
+\end{equation} 
+The coefficients in Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} are as follows:
+\begin{equation} \label{GrindEQ__29_}
+W_{nk}=\frac{v_{nk}}{m}; N_n=2\frac{{\eta }_n}{m}; B=2\frac{{\zeta }_n}{m}; C^r_A=C_AA_I\frac{l}{2m}; C^r_D=C^{'}_DA_D\frac{4l}{3\pi m}.
+\end{equation}
+
+In the present study, Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} are solved numerically to obtain the modal response of the cable. These equations are also investigated via scaling and averaging technique. The objective of this numerical and theoretical investigations is to obtain the stability boundaries in terms of the frequency-amplitude response curve.
+% % %
+\subsubsection{Simulation}
+In order to solve these simultaneous ordinary differential equations, Newmark's time integration scheme is adopted. Using this method, Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} at time any given time $t_{j+1},\ $can be written as
+\begin{equation} \label{GrindEQ__30_} 
+\left[M\right]\left\{{\ddot{X}}_{j+1}\right\}+\left[C\right]\left\{{\dot{X}}_{j+1}\right\}+\left[K(X\left(t\right))\right]\left\{X_{j+1}\right\}=\ \left\{F_{j+1}\right\}.  
+\end{equation} 
+
+Here, in Eq. \eqref{GrindEQ__30_}, mass matrix [M] is the coefficient of  the vector $\left\{\ddot{X}\right\}=\{{\ddot{y}}_1,\ {\ddot{y}}_2,{\ddot{z}}_2\}$, damping matrix is the coefficients of the linear damping vector $\left\{\dot{X}\right\}=\{{\dot{y}}_1,{\dot{y}}_2,{\dot{z}}_2\}$, nonlinear stiffness $\left[K(X\left(t\right))\right]$ is the coefficients of the vector $\left\{X\right\}=\{y_1,y_2,z_2\}$, $F$ is the force vector constructed by the terms from the Morison force and base excitation. At each time increment, $\Delta t_j=t_{j+1}-t_j$, the incremental elastic force can be written as
+\begin{equation} \label{GrindEQ__31_} 
+\left[K(X\left(t\right))\right]\left\{X_{j+1}\right\}=\left[K(X\left(t\right))\right]\left\{X_j\right\}+[K_T]\left\{\Delta X_j\right\},       
+\end{equation} 
+where $[K_T]$ is the tangent stiffness at $X_j$. Substituting Eq. \eqref{GrindEQ__31_} into Eq. \eqref{GrindEQ__30_} gives
+\begin{equation} \label{GrindEQ__32_} 
+\left[M\right]\left\{{\ddot{X}}_{j+1}\right\}+\left[C\right]\left\{{\dot{X}}_{j+1}\right\}+\left[K_T\right]\left\{\Delta X_j\right\}=\ \left\{F_{j+1}\right\}-\left[K(X\left(t\right))\right]\left\{X_j\right\}. 
+\end{equation} 
+
+The error introduced due to the replacement of secant stiffness matrix by the tangent stiffness matrix is reduced through iterations at each time step (tolerance is kept as below $0.1$\%).
+% % %
+\subsubsection{Scaling and averaging}
+The set of ordinary differential equations (Eqs. (26)-\eqref{GrindEQ__28_}) is also examined via scaling and averaging technique. The objective of this analysis is to determine the modal amplitudes of directly excited modes and stability of other modes.  To this end, these equations are scaled in the standard Lagrange form given as
+\begin{equation} \label{GrindEQ__33_} 
+x^{''}_{ij}+{\omega }^2_1x_{ij}=\varepsilon X_i+\ \mathcal{O}({\varepsilon }^2),            
+\end{equation} 
+where $\varepsilon$ is a small parameter. In Eq. (\ref{GrindEQ__33_}), time scale ($\tau$) is introduced and it is transformed using the relationship $\tau=(1+\mu)t$. The symbols ${\left\{\ \right\}}^{'}$ and ${\left\{\ \right\}}^{''}$ represent the first and second order derivatives with respect to $\tau$, respectively. Here, a new representation of the variables is introduced  $\{y_1, y_2, z_2\}=\{x_{11}, x_{22}, x_{32}\}$, where second subscript in $x_{ij}$ represents whether the variable is related to the first or second mode.
+
+It is assumed that the base excitation frequency ($\Omega$) is close to the natural frequency of the second mode. So, frequency of the base excitation can be written in the form $\Omega=2{\omega}_1(1+\mu)$. Neglecting the higher order terms of $\varepsilon$, the Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} can be written in a standard Lagrange form as (in new scaled domain),
+\begin{equation} \label{GrindEQ__34_}
+y^{''}_1+{\omega }^2_1y_1+\varepsilon \left(2{\xi }_{y1}{\omega }_1y^{'}_1-N_1\delta y_1-2\mu {\omega }^2_1y_1+W_{11}y^3_1{+W}_{12}{y_1[y}^2_2+z^2_2]+C^{ny_1}_Ay^{''}_1+C^{ny_1}_Dy^{'}_1\left|y^{'}_1\right|\right)=\mathcal{O}({\varepsilon }^2), 
+\end{equation}
+\begin{equation} \label{GrindEQ__35_}
+y^{''}_2+{\omega }^2_2y_2+\varepsilon \left(2{\xi }_{y2}{\omega }_2y^{'}_2-N_2\delta y_2-2\mu {\omega }^2_2y_2+W_{21}y_2y^2_1+W_{22}{y_2[y}^2_2+z^2_2]+C^{ny_2}_Ay^{''}_2\right)=\mathcal{O}({\varepsilon }^2),
+\end{equation}
+\begin{equation} \label{GrindEQ__36_}
+z^{''}_2+{\omega }^2_2z_2+\varepsilon \left(2{\xi }_{z2}{\omega }_2z^{'}_2-N_2\delta z_2-2\mu {\omega }^2_2z_2+W_{21}z_2y^2_1+W_{22}{z_2[y}^2_2+z^2_2]+C^{nz_2}_Az^{''}_2+B\ddot{\delta }\right)=\mathcal{O}({\varepsilon }^2).
+\end{equation}
+A trial solution for the set of equations (Eq. (34)-\eqref{GrindEQ__35_}) can be assumed through the harmonic balance as
+\begin{equation} \label{GrindEQ__37_} 
+x_{ij}=x_{ijc}\mathrm{cos} {(\omega }_j\mathrm{\tau }\mathrm{)}\mathrm{+}x_{ijs}\mathrm{sin} {(\omega }_j\mathrm{\tau}\mathrm{)}.            
+\end{equation} 
+This solution exists with conditions
+\begin{equation} \label{GrindEQ__38_}
+x^{'}_{ijc}=-\frac{\varepsilon }{{\omega }_j}{\mathrm{sin} ({\omega }_j\ }\tau\mathrm{)}\ X_i \hspace{1.5ex} \text{and} \hspace{1.5ex} x^{'}_{ijs}=-\frac{\varepsilon }{{\omega }_j}\mathrm{cos} ({\omega }_j\tau\mathrm{)} X_i.      
+\end{equation}
+Now, Eq. \eqref{GrindEQ__38_} is integrated (averaged) with respect to $\tau$ over the region $\tau+\pi\omega _n$ to $\tau-\pi/{\omega}_n$ (a fundamental period of $2\pi/\omega_n$ and this yields
+\begin{equation} \label{GrindEQ__39_} 
+y^{'}_{1ca}=-\frac{\varepsilon }{{\omega }_1}\left( \begin{array}{c}
+{\xi }_{y1}{\omega }^2_1y_{1ca}+\left[\mu {\omega }^2_1-\frac{N_1}{4}\mathrm{\Delta }\right]y_{1sa}- \\ 
+\frac{3}{8}W_{11}Y^2_{1a}y_{1sa}-\frac{1}{4}W_{12}y_{1sa}\left[Y^2_{2a}+Z^2_{2a}\right] \\ 
++\frac{1}{2}C^{ny_1}_A{\omega }^2_1y_{1sa} \end{array}
+\right),         
+\end{equation} 
+\begin{equation} \label{GrindEQ__40_} 
+y^{'}_{1sa}=\frac{\varepsilon }{{\omega }_1}\left( \begin{array}{c}
+-{\xi }_{y1}{\omega }^2_1y_{1sa}+\left[\mu {\omega }^2_1+\frac{N_1}{4}\mathrm{\Delta }\right]y_{1ca}- \\ 
+\frac{3}{8}W_{11}Y^2_{1a}y_{1ca}-\frac{1}{4}W_{12}y_{1ca}\left[Y^2_{2a}+Z^2_{2a}\right] \\ 
++\frac{1}{2}C^{ny_1}_A{\omega }^2_1y_{1ca} \end{array}
+\right),              
+\end{equation} 
+\begin{equation} \label{GrindEQ__41_} 
+y^{'}_{2ca}=-\frac{\varepsilon }{{\omega }_2}\left( \begin{array}{c}
+{\xi }_{y2}{\omega }^2_2y_{2ca}+\mu {\omega }^2_2y_{2sa}-\frac{1}{4}W_{21}Y^2_{1a}y_{2sa}- \\ 
+\frac{1}{8}W_{22}y_{2sa}\left[3Y^2_{2a}+Z^2_{2a}\right]-\frac{1}{4}W_{22}C_{2a}z_{2sa} \\ 
++\frac{1}{2}C^{ny_2}_A{\omega }^2_2y_{2sa} \end{array}
+\right),   
+\end{equation} 
+\begin{equation} \label{GrindEQ__42_} 
+y^{'}_{2sa}=\frac{\varepsilon }{{\omega }_2}\left( \begin{array}{c}
+-{\xi }_{y2}{\omega }^2_2y_{2sa}+\mu {\omega }^2_2y_{2ca}-\frac{1}{4}W_{21}Y^2_{1a}y_{2ca}- \\ 
+\frac{1}{8}W_{22}y_{2ca}\left[{3Y}^2_{2a}+Z^2_{2a}\right]-\frac{1}{4}W_{22}C_{2a}z_{2ca} \\ 
++\frac{1}{2}C^{ny_2}_A{\omega }^2_2y_{2ca} \end{array}
+\right),   
+\end{equation} 
+\begin{equation} \label{GrindEQ__43_} 
+z^{'}_{2ca}=-\frac{\varepsilon }{{\omega }_2}\left( \begin{array}{c}
+{\xi }_{z2}{\omega }^2_2z_{2ca}+\mu {\omega }^2_2z_{2sa}-\frac{1}{4}W_{21}Y^2_{1a}z_{2sa}- \\ 
+\frac{1}{8}W_{22}z_{2sa}\left[3Z^2_{2a}+Y^2_{2a}\right]-\frac{1}{4}W_{22}C_{2a}y_{2sa} \\ 
++\frac{1}{2}C^{nz_2}_A{\omega }^2_2z_{2sa} \end{array}
+\right),    
+\end{equation} 
+\begin{equation} \label{GrindEQ__44_} 
+z^{'}_{2sa}=\frac{\varepsilon }{{\omega }_2}\left( \begin{array}{c}
+-{\xi }_{z2}{\omega }^2_2z_{2sa}+\mu {\omega }^2_2z_{2ca}-\frac{1}{4}W_{21}Y^2_{1a}z_{2ca}- \\ 
+\frac{1}{8}W_{22}z_{2ca}\left[{3Z}^2_{2a}+Y^2_{2a}\right]-\frac{1}{4}W_{22}C_{2a}y_{2ca} \\ 
++\frac{1}{2}C^{nz_2}_A{\omega }^2_2z_{2ca}+\frac{1}{2}B\mathrm{\Delta }{\omega }^2_2 \end{array}
+\right),     
+\end{equation} 
+where $Y^2_{1a}=y^2_{1ca}+y^2_{1sa}$, $Y^2_{2a}=y^2_{2ca}+y^2_{2sa}$, $Z^2_{2a}=z^2_{2ca}+z^2_{2sa}$, are the modal amplitudes, $C_{2a}=y_{2ca}z_{2ca}+y_{2sa}z_{2sa}$. Here, it should be noted that the terms $x_{ijc}$ and $x_{ijs}$ are treated as constant during the integration and the subscript `\textit{a}' represents their average value.
+% % %
+\subsubsection{Stability boundaries}
+In the present study, the in-plane motion is directly excited due to the wave-induced base excitation. The increase in the amplitude of the base excitation can excite either of the two out-of-plane modes. In frequency amplitude parameter space, this marks as the boundary of the semi-trivial solution. Therefore, the localized stability of each out-of-plane mode is analysed about zero response to trace the boundary of the semi-trivial solution in frequency amplitude parameter space assuming that the other out-of-plane mode has zero amplitude. Now for each mode Eqs. \eqref{GrindEQ__39_}-\eqref{GrindEQ__40_} can be written in the form,
+\begin{equation} \label{GrindEQ__45_} 
+\left\{ \begin{array}{c}
+x^{'}_{ijca} \\ 
+x^{'}_{ijsa} \end{array}
+\right\}=\varepsilon \left[A_s\right]\left\{ \begin{array}{c}
+x^{\ }_{ijca} \\ 
+x^{\ }_{ijsa} \end{array}
+\right\}.              
+\end{equation} 
+Here, in Eq. \eqref{GrindEQ__45_}, the matrix $A_s$ contains the coefficients of $x_{ijca}$ and $x_{ijsa}$. In the matrix $A_s$, the amplitudes of the second out-of-plane are considered to be zero and also, the higher-order terms are neglected. Now, the eigenvalues of matrix $A_s$ are determined to trace the stability boundary. For a small excitation amplitude, the eigenvalues have negative real parts. With the increase in excitation amplitude, the real part of one of the eigenvalues turns out to be zero. This gives the stability boundary of the first out-of-plane mode as the roots of the following equations:
+\begin{equation} \label{GrindEQ__46_} 
+W^2_{12}Z^4_{2a}-8W_{12}\mu {\omega }^2_1Z^2_{2a}+16{\omega }^4_1\left({\mu }^2+{\xi }^2_{y2}-\frac{C^{'2}_A}{4}\right)-N^2_1{\mathrm{\Delta }}^2-4{\omega }^2_1N_1\Delta C^{'}_A=0.   
+\end{equation} 
+Similarly, it can be obtained for the second out-of-plane mode as
+\begin{equation} \label{GrindEQ__47_} 
+(3W^2_{12}-12C^{'}_A\ W_{12}{\omega }^2_1)\ Z^4_{2a}-(32W_{12}\mu {\omega }^2_1+4C^{'}_A{W_{12}{\omega }^2_1)Z}^2_{2a} 
++6{4\omega }^4_1\left({\mu }^2+{\xi }^2_{y2}+\frac{C^{'2}_A}{4}+\mu C^{'}_A\right)=0.     
+\end{equation} 
+and for the second in-plane mode stability boundary turns out to be
+\begin{equation} \label{GrindEQ__48_} 
+9W^2_{22}Z^6_{2a}-(48W_{22}\mu {\omega }^2_2{+24C^{'}_AW_{22}{\omega }^2_2)Z}^4_{2a}+64{\omega }^4_2\left({\mu }^2+{\xi }^2_{z2}+\frac{C^{'2}_A}{4}+\mu C^{'}_A\right)Z^2_{2a}=16{\omega }^4_2B^2{\mathrm{\Delta }}^2.  
+\end{equation} 
+% % %
+\section{Validation of the numerical model}
+The numerical method for solving the modal equation of motions (Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_}) is verified against the experimental observation of Gonzalez-Buelga et al. \cite{Gonzalez_2008}. In this model test, a cable of length $1.98$ m was used with an angle of inclination $20^{0}$. The static tension of the cable was 205 N. Cable diameter was $0.8$ mm with a mass of 0.67 kg/m. The Young's Modulus was taken as same that of steel, i.e., $200$ GPa. A disturbance in the form of a $0.02$ s, $0.1$ mm/s amplitude pulse is applied to the two out-of-plane modes and the stability of modes is assessed.
+
+The stability boundary for the first out-of-plane mode is estimated by solving the modal equation of motions (considering the two out-of-plane and one in-plane modes from Eqs. \eqref{GrindEQ__15_}-\eqref{GrindEQ__16_} and Eq. \eqref{GrindEQ__20_} for the Morison force) for various values of the base excitation amplitude and frequency. In this context, it should be noted also that the model test was carried out in the air and the Morison forces due to air drag and inertia are included in the model. The density of air was chosen to be $1.225$ kg/m$^{3}$, drag and inertia coefficients are considered as $1.0$ and $2.2$, respectively. Excitation amplitude is gradually increased, keeping the same excitation frequency to find a point at which slight increase or decrease in the amplitude causes growth in the first out-of- plane mode. It is important to note that the base excitation is provided at the lower support of the cable in the experiments. Therefore, in the simulation, it is replicated using the end conditions: $u_a=0$, $w_a=0$, $u_b=\delta $ and $w_b=\delta $, where $\delta =\Delta{\text{cos} (\Omega t)\ }$. The out-of-plane pulse load is provided by the term ${\zeta}_n\left({\ddot{v}}_b\right)$ of Eq. \eqref{GrindEQ__15_}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\linewidth]{Figs/Validation.eps}
+	\caption{ Dependence of the response amplitude on the excitation frequency of nonlinear cable dynamics and validation of the numerical predictions with experimental measurements. Abbreviations `Y' and `N' in legend indicate the cases with and without hydrodynamic forces respectively. }
+	\label{valid}
+\end{figure}
+
+In Fig. \ref{valid}, the stability boundary obtained from numerical simulation is compared with the experimental results of Gonzalez-Buelga et al. \cite{Gonzalez_2008}. It is observed that the difference in the results between the numerical predictions and experimental measurements is less than 2 $\%$. Therefore, it can be concluded that the stability points predicted from the simulation show good agreement with the experimental measurements. The deviation in the results can be attributed to the fact that a cable with uniform density is used in the numerical simulations; whereas to attain the intended mass of the cable, lead weights were attached at $60$ mm interval in experimental analysis. In Fig. \ref{valid}, the stability boundary obtained by neglecting the hydrodynamic forces are also plotted for comparison. It can be observed that the inclusion hydrodynamic forces cause a reduction in the amplitude required for cable to become unstable for a particular frequency. The maximum difference in amplitude required for the instability of cable can reduce up to 20 $\%$, if the drag and inertia effects are considered. In a mooring system design, the hydrodynamic effects will be even more, since the water being a denser material will have a large influence on the drag and inertia forces. However, these effects were neglected in the earlier study on parametric and auto-parametric instability of cables as well as in the mooring system design. In the next section, a comprehensive study on the parametric and auto-parametric instability of taut mooring cables in the presence of coupled hydrodynamic and ice load is presented.
+
+% % %
+\section{Results and discussion}
+In the present study, a modal instability analysis of the mooring system of an Arctic floater with a downward slope is performed. The study assumes a complex loading situation, the wave load from the in-plane direction and ice load from the out-of-plane direction. The wave load on the fairlead is assumed as a harmonic excitation. Whereas, the ice load on the floater is assumed as a pulse load. The prediction of the pulse load function is done through a numerical simulation presented is Section 2.1. With this loading scenario, a series of simulations is carried out to investigate the effect of geometric nonlinearity in the stability of mooring cable under the out-of-plane pulse load from the ice-floe. The effect of the Morison forces for the modal instability of cable is also investigated.
+% % %
+\begin{table}[]
+	\centering
+	\caption{Parameters used for mooring and floater}
+	{\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{|c|c|}
+			\hline
+			{Parameter} & {Value} \\ \hline
+			Cable length ($l$) & $500$ m \\ \hline 
+			Diameter ($d$) & $0.09$ m \\ \hline 
+			Elastic modulus ($E$) & $200$ GPa \\ \hline 
+			Static tension ($T_{sx}$) & $1000$ kN \\ \hline 
+			Angle of inclination ($\theta$) & $20^0$ \\ \hline 
+			Base excitation amplitude ($\Delta$) & $0.4$ m \\ \hline 
+			Damping ratio (${\xi }_{y1}$, ${\xi }_{y2}$, ${\xi }_{z2}$) & $0.2$\% \\ \hline 
+			$\Omega/\omega_{2}$ & $0.97$ \\ \hline 
+			Ice load acceleration & $0.02$ m/s$^{2}$ \\ \hline 
+			Density of cable material ($\rho$) & $8000$ kg/m$^{3}$ \\ \hline 
+			Total hull buoyancy & $91$e$6$ N \\ \hline 
+			Total vertical tension & $1.0$e$6$ N \\ \hline 
+			Vessel CG $(x, y, z)$ & $(0, 0, 5)$ m \\ \hline 
+			Total waterplane area & $3850$ m$^{2}$ \\ \hline 
+			Downward breaking slope of the floater ($\alpha$) & $30^{0}$ \\ \hline
+			Water depth ($h_w$) & $171$ m \\ \hline
+		\end{tabular}
+	}
+	\label{PU}
+\end{table}
+\subsection{Ice load acceleration}
+Ice load time history on the floater is determined by employing the coupled ice-floater interaction program which comprises of a commercially available coupled floater and mooring system analysis software (HARP) and a user-defined function for the ice load at each time step based on both ice and floater movement. A floater with circular hull and radially symmetric mooring system with 12 taut cables is utilised for the analysis. Table \ref{PU} lists the hydrodynamic and mooring parameters of the floater. Figure \ref{panel} displays the panel model of the floater and mooring system.
+
+Simulations are carried out by varying ice-thickness ($h$=1 m, 1.5 m and 3 m) and drift velocity ($V_{ice}$=0.01 m/s and 0.05 m/s) keeping all the other parameters constant. In Fig. \ref{IL}, the ice load time history on the floater from each of the simulation is presented. It can be clearly seen from Fig. \ref{IL} that the peak-load primarily depends on the ice-thickness whereas, drift velocity influences the number of ice events. It can be observed that if the drift velocity is increased keeping the ice thickness constant (e.g. Fig. \ref{IL}a and Fig. \ref{IL}d), the number of ice breaking events reduces. This can be attributed to those situations when the drift velocity of ice becomes less than the velocity of the floater. 
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Figs/panel_a.eps}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{Figs/panel_b.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Panel model of floater and mooring system: (a) close-up view of surface panels, (b) global view of coupled system.}
+	\label{panel}
+\end{figure}
+
+
+Now the stability analysis of the mooring which experiences the maximum load is performed using the ice load case presented in Fig. \ref{IL}. This load is utilized as the source of out-of-plane pulse load for the mooring instability analysis. The out-of-plane pulse load is provided to the fairlead through an out-of-plane acceleration. The out-of-plane acceleration on the floater is estimated from the acceleration time history obtained from HARP simulation. The peak pulse acceleration ($A_{\mathrm{floater}}$) experienced by the floater for the load case as presented in Fig. \ref{IL}a turns out to be 0.02 m/s$^2$ and in all the calculations this pulse acceleration at the fairlead is utilized. Here it should be noted that sudden acceleration of the floater and fairlead are assumed to be the same, i.e., $A_{\mathrm{floater}}= A_{\mathrm{fairlead}}$. In this study, an initial delay of 200 s is prescribed before the first ice feature comes in contact with the floater. This delay ensures the realistic, stable condition of the floater under wave loading. The overall influence of the stable ice load portion on the mooring instability is not significant. Thus, this value is neglected and assumed to be zero. To particularly identify the instability characteristics, the implication of just one ice breaking event is investigated, i.e., one transient load event to research its influence on the instability effectively. Building on the explanation in Section 2.1 behind the potential of orthogonal ice load, an independent ice-floe is considered.  This allows to employ a transient ice load function with a single peak (as shown in Fig. \ref{IL}a) to interact with the floater from an orthogonal direction to the wave.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.5\linewidth]{Figs/ice_load.png}
+%	\caption{Load time history used for the calculation of ice acceleration for the coupled floater-mooring system}
+%	\label{IL}
+%\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case1.eps}
+		\caption{$V_{ice}$=0.05 and $h=1.0$}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case2.eps}
+		\caption{$V_{ice}$=0.05 and $h=1.5$}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case3.eps}
+		\caption{$V_{ice}$=0.05 and $h=2.0$}
+	\end{subfigure}\\
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case4.eps}
+		\caption{$V_{ice}$=0.01 and $h=1.0$}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case5.eps}
+		\caption{$V_{ice}$=0.01 and $h=1.5$}
+	\end{subfigure}
+	\begin{subfigure}{.32\textwidth}
+		\centering
+		\includegraphics[width=2in,height=1.7in]{Figs/case6.eps}
+		\caption{$V_{ice}$=0.01 and $h=2.0$}
+	\end{subfigure}\\
+	\caption{Ice load time history obtained from the coupled ice-floater interaction program for various drift velocity ($V_{ice}$) and ice-thickness ($h$). }\label{IL}
+	\end{figure}
+
+% % %
+\subsection{Linear versus nonlinear cable dynamics}
+In this study, a comparison between linear and non-linear cable dynamics is presented. In this regard, Eqs. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} are solved numerically using Newmark's method.  In the linearized version of the cable dynamics equation, the terms associated with the geometric nonlinearity (terms involving $W_{11}$,$W_{12}$,$W_{21}$ and $W_{22}$) are ignored. Therefore, the cable is excited directly through the term $B\ddot{\delta }$ in the in-plane mode and parametric terms (terms involving $N_1, N_2)$ due to the wave-induced motion of the floater. Here, it should be noted that in both linear and nonlinear analysis, the terms due to Morison forces are included during simulation.
+\begin{figure}
+	\centering
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F1_a.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F1_b.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F1_c.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Time histories of in-plane and out-of-plane modes ignoring the effect of geometric nonlinearity but considering Morison forces - auto-parametric instability not captured.}
+	\label{lcd}
+\end{figure}
+
+In Figs. \ref{lcd} and \ref{nlcd_M}, the modal responses for the same loading condition is presented considering the linear and nonlinear cable dynamics. Base excitation amplitude, frequency and acceleration in the floater due to the ice load are kept same for both cases. It can be clearly seen from Fig. \ref{lcd}a that the response of the first out-of-plane mode due to the pulse ice load on the floater, gradually decays in the linear analysis. However, in the nonlinear analysis, it continuously oscillates and never decays as shown in Fig. \ref{nlcd_M}a. A growth in modal response also can be observed in the second out-of-plane mode from Fig. \ref{nlcd_M}b. A few harmonics of the response are shown in the inset of Figs. \ref{nlcd_M}a and Fig. \ref{nlcd_M}b which clearly depicts the growth in the response after the application of the ice load. The simulations with the geometric nonlinearity include cubic stiffness terms and also modal coordinates are multiplied with one another. This can excite the other responses through the modal coupling which is ignored in the linear analysis.
+\begin{figure}
+	\centering
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F2_a.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F2_b.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F2_c.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Time histories of in-plane and out-of-plane modes considering geometric nonlinearity and Morison forces - instability in out-of-plane modes.}
+	\label{nlcd_M}
+\end{figure} 
+% % %
+\subsection{Effect of Morison forces:  nonlinear cable dynamics}
+Simulations are also carried out to investigate the effect of the Morison forces which are introduced in the modal analysis of the underwater cable.  In Fig. \ref{nlcd_noM}, the modal response of the cable is plotted without considering the effect of the Morison forces keeping all the other parameters same. It can be observed that the modal responses do not display an instability in the out-of-plane modes, i.e., growth in the response. However, this is in contrast to the responses plotted in Fig. \ref{nlcd_M}, in which the Morison forces are considered along with the geometric nonlinearity. This can be attributed to the nonlinear force due to the added mass (contains acceleration of the surrounding fluid) and drag (contains terms which are square of velocity) leading to the modal instability of the cable. Therefore, it is important to obtain the stability boundaries, i.e., frequency-amplitude response curves for the designers' utility.
+\begin{figure}
+	\centering
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F3_a.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F3_b.eps}
+		\caption{}
+	\end{subfigure}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=5in,height=1.7in]{Figs/F3_c.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Time histories of in-plane and out-of-plane modes considering geometric nonlinearity but no Morison forces -  instability is not observed.}
+	\label{nlcd_noM}
+\end{figure}
+% % %
+\subsection{Stability boundaries}
+Stability boundaries are determined both theoretically and numerically. In order to obtain the stability boundary of the first out-of-plane mode, Eqs. \eqref{GrindEQ__46_} and \eqref{GrindEQ__48_} are solved together for various values of the base excitation frequency. Similarly, Eqs. \eqref{GrindEQ__47_} and \eqref{GrindEQ__48_} are solved together to obtain the stability boundary of the second out-of-plane mode. Stability of the out-of-plane modes is also tested numerically by solving Eq. \eqref{GrindEQ__26_}-\eqref{GrindEQ__28_} for  various values of the base excitation amplitude and frequency. For a particular value of excitation frequency, the excitation amplitude is gradually increased to find the instability in the out-of-plane modes.
+
+Figure \ref{SB_y}a features frequency-amplitude response parenting to the stability boundary of first out-of-plane mode. A similar method of determining the stability boundaries presented in the model validation section is used in this case as well. To identify the stability boundary for a particular excitation frequency the amplitude of base excitation due to wave load is varied keeping all the other parameters constant. Here, it should be noted that even though wave load is varied ice load, i.e., fairlead excitation is kept constant. At the boundary for a particular frequency a slight increase amplitude makes the modal response from stable (`+') to unstable (`$\times$').  It should be noted also that the point of inflection in the stability curve is shifted  due  to  the  inclusion  of  Morison  forces  (see Ref. \cite{Gonzalez_2008}: inflection point of the stability curve is near ${\Omega}/\omega_2 \approx 1$). This is due to the inclusion of the added mass term of the Morison equation which changes the natural frequency of the coupled system. It is also observed that the first out-of-plane roots obtained (solving Eqs. \eqref{GrindEQ__46_} and \eqref{GrindEQ__48_}) oscillate from one solution value to another. This can be attributed to the neglecting of higher order terms in scaling average schemes, because of which this scheme is unable to produce actual frequency-amplitude response curve for system involving strong nonlinearity. 
+
+In Fig. \ref{SB_y}b, the stability region for the second out-of-plane mode obtained from both theoretical solution and simulation is depicted. The stability boundaries by the numerical simulation are identified as the point at which a slight increase or decrease in the amplitude causes an instability (in Fig. \ref{SB_y}b, `+' markers indicate stable response, whereas `$\times$' markers indicate unstable). A significant difference in results between the simulation and scaling-averaging method can be observed for ${\Omega}/\omega_2 > 1$. This difference is due to the fact that the lower stability boundary does not represent zero initial condition used in the simulation. Also, neglecting the higher order terms in scaling average schemes can be a source of this difference as discussed earlier. A similar shift in the inflection point of the stability curve can be observed in the second out-of-plane mode as well.
+
+% This difference can be attributed to the fact  neglecting of higher order terms in scaling average schemes as discussed earlier.
+%
+%
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/SB_1.eps}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/SB_2.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Stability boundaries for the mooring cable: (a)  first out-of-plane mode,  and (b) second out-of-plane mode.}
+	\label{SB_y}
+\end{figure}
+
+In Fig. \ref{SB_z}, the response of the second in-plane mode is presented for two different cases: (i) without Morison forces; and (ii) with Morison forces. The response of the second in-plane mode is obtained for various values of the excitation amplitude (keeping excitation frequency same at ${\mathit{\Omega}/\omega }_2=1$) by finding the roots of Eq. \eqref{GrindEQ__48_}. It can be observed that the hysteretic region (the region marked in Fig. 6, OP for the case without Morison Force and OP${}^{M}$ for the case with Morison forces) where there are two stable solutions for the second in-plane mode has increased with the inclusion of Morison forces. The lower saddle node of the bifurcation (P${}^{M}$) occurs for a higher magnitude of the excitation amplitude. Instability in the out-of-plane modes occurs when the excitation amplitude exceeds beyond the point P${}^{M}$. At point P${}^{M}$, the amplitude of the second in-plane mode jumps to R${}^{M}$, i.e., larger solution curve. It can be observed that the jump in the amplitude of the second in-plane response becomes larger with the inclusion of Morison forces (distance between P${}^{M}$ and R${}^{M}$ is greater than P and R). The steady state amplitude of the second in-plane response obtained from simulation agrees well with the results obtained from the scaling-averaging.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\linewidth]{Figs/SB_3.eps}
+	\caption{Second in-plane mode responses of the mooring cable for excitation frequency $\Omega/\omega_2=1.03$ and amplitude $\Delta$.}
+	\label{SB_z}
+\end{figure}
+% % %
+\subsection{Effect of mooring cable pretension and fairlead slope on stability boundaries}
+In Figs. \ref{ESB}a and \ref{ESB}b, a parametric study on the stability boundaries is presented by varying mooring cable pretension and fairlead slope respectively. Simulations are carried out for three values of mooring cable pretension, viz., 500 KN, 1000 KN and 1500 KN keeping all the other parameters constant. Stability boundary for second out-of-plane mode is plotted in Fig. \ref{ESB}a for various values of cable pretension. It can be observed that with the increase in the cable pretension, the amplitude of base excitation required to cause the instability in cable is more. The difference in the required amplitude of base excitation to cause the instability can go up to a maximum of 30 $\%$, if the cable tension is increased from 500 KN to 1500 KN. Therefore, it can be prescribed that increase in the cable pretension can be used as a potential method to mitigate the parametric and auto-parametric instability in morning system.
+
+In Fig. \ref{ESB}b, another parametric study on the stability boundary is presented by varying the fairlead slope and keeping all the other parameters constant as provided in Table \ref{PU}. Here, it should be noted that in this study, the fairlead slope is varied keeping water depth constant and therefore, the cable length is varied. It can be clearly seen from Fig. \ref{ESB}b that with the increase in fairlead slope, the amplitude of base excitation required to cause the instability in the mooring cables increases. Increase in the fairlead slope from 20$^0$ to 30$^0$ causes a maximum of 30 $\%$ increase in the amplitude required to produce the instability in mooring cable. Therefore, it can be concluded that the fairlead slope plays a significant role in designing a stable mooring system and can effectively be used to reduce the instability in the mooring system.
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/y2_T.eps}
+		\caption{}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.0\linewidth]{Figs/y2_F.eps}
+		\caption{}
+	\end{subfigure}
+	\caption{Effect of mooring design variables on stability boundaries of second out-of-plane mode: (a)  pretension,  and (b) fairlead slope.}
+	\label{ESB}
+\end{figure}
+% % %
+\section{Conclusion} 
+It can be concluded from the present study that the geometric nonlinearity plays an important role in the modal interaction, i.e., the auto-parametric excitation of the cable which may lead to the large vibration and instability in an ice-floe field. Furthermore, the coupled hydrodynamic and ice load significantly influences the modal coupling which leads to reduction in the amplitude of base excitation required to cause an instability in cable. Therefore, in the mooring system design for Arctic environment, it is recommended to consider the effect of coupled hydrodynamic and ice load along with the higher order terms of strain tensor. However, the present state-of-the-art in the offshore industry tends to ignore this phenomenon. The stability boundaries in terms of frequency-amplitude response curve for out-of-plane modes are identified near the 2:1 internal resonance region. Furthermore, the stability boundaries are studied as a function of cable pretension and fairlead slope. It is found that the cable pretension and the fairlead slope can be used as potential methods to control the parametric and auto-parametric instability in the morning system. These findings can aid the industry in the design stage of mooring system, wherein, the line design variables can be selected judiciously to avoid the internal resonance phenomenon.
+
+The present study can be extended by considering various other internal resonance phenomena which may occur due to the coupling of different modes. One of the extension to the present study can be considered as modelling of the surrounding fluid domain with Navier-Stokes equation which will remove the empirically assigned values of drag and inertia coefficients in the  Morison equation. Furthermore, a simple semi-empirical model for predicting ice load is used in the present study which can be extended by considering more realistic phenomenological model for ice-floe considering the breaking, crack propagation, rotation and rubble formation. In reality, combined hydrodynamic and ice loads may come from any direction. The loading condition chosen in this particular manuscript can be considered as a subset of the complex loading situation that an arctic floater mooring system may encounter and this may eventually lead to more complex dynamic responses. Such internal resonance phenomena is quite common in real engineering problems, which can lead to undesired large amplitude variations into flexible cables. In this paper, it is shown theoretically that the dynamics of underwater mooring cables are strongly nonlinear which involves internal coupling between modes and parametric coupling with external effects using a simple condition of combined hydrodynamic and ice loads. This can eventually lead to instability of underwater cable due to internal resonance phenomena. This work can be experimentally investigated further by studying the parametric and autoparametric instability of underwater cable to apply it efficiently in real engineering applications. 
+% % %
+\section*{Acknowledgment}
+This work done at the Keppel-NUS Corporate Laboratory was supported by the National Research Foundation, Keppel Offshore and Marine Technology Centre (KOMtech) and National University of Singapore (NUS). The authors are thankful to Prof Anis Hussain, Mr Weiping Wang, Mr Ankit Choudhary and Dr Zhuo Chen of KOMtech for their valuable suggestions. We thank Dr Raditya Pradana for his assistance in revising this manuscript. The conclusions put forward reflect the views of the authors alone and not necessarily those of the institutions within the Corporate Laboratory.
+% % %
+\section*{References}
+\bibliography{References}
+
+\end{document}

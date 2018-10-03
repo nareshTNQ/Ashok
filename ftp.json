@@ -1,0 +1,76 @@
+[{
+"id": "EQA",
+"data": {
+"hostname": "ftpuat.proofcentral.com",
+"username": "pc3qa",
+"password": "f60T8MJ6qV",
+"remotesignal" : "//TNQ//Signals",
+"remotefolder" : "//TNQ//IN"
+}
+},{
+"id": "QA",
+"data": {
+"hostname": "iftp.tnq.co.in",
+"username": "pcsjs",
+"password": "plao3e",
+"remotesignal" : "//TNQ//Signals",
+"remotefolder" : "//TNQ//IN"
+}
+},{
+"id": "E-QA",
+"data": {
+"hostname": "ftpuat.proofcentral.com",
+"username": "pc3qa",
+"password": "f60T8MJ6qV",
+"remotesignal" : "//TNQ//Signals",
+"remotefolder" : "//TNQ//IN"
+}
+},{
+"id": "DEMO",
+"data": {
+"hostname": "demoftp.tnq.co.in",
+"username": "pgcuser",
+"password": "CYXn9vTJv",
+"remotesignal" : "//TNQ//Signals",
+"remotefolder" : "//TNQ//IN"
+}
+},{
+"id": "UAT",
+"data": {
+"hostname": "ftpuat.proofcentral.com",
+"username": "sjs",
+"password": "g12sJsIM5a",
+"remotesignal" : "//Signals",
+"remotefolder" : "//IN"
+}
+},{
+"id": "AU",
+"data": {
+"actor": "Author",
+"role" : "Proof Corrector",
+"task" : "Author Corrections",
+"tag"  : "proof-corrector",
+"alttag":"textcontent",
+"key"  : "AU"
+}
+},{
+"id": "CR",
+"data": {
+"actor": "Production Editor",
+"role" : "Proof Validator",
+"task" : "Corrections Review",
+"tag"  : "proof-corrector",
+"alttag":"textcontent",
+"key"  : "CR"
+}
+},{
+"id": "PR",
+"data": {
+"actor": "Publisher",
+"role" : "Proof Reviewer",
+"task" : "Proof Revision QC",
+"tag"  : "proof-corrector",
+"alttag":"textcontent",
+"key"  : "PR"
+}
+}]
